@@ -1,0 +1,8 @@
+on boot
+    start teei_daemon
+
+service teei_daemon /vendor/bin/teei_daemon
+    class core
+    user root
+    group system
+    disabled

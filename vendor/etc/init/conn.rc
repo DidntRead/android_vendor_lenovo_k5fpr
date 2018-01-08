@@ -1,0 +1,10 @@
+service wmt_loader /vendor/bin/wmt_loader
+    class core
+    user root
+    group root
+    oneshot
+
+service 66xx_launcher /vendor/bin/6620_launcher -m 4 -p /vendor/firmware/
+    user system
+    group system
+    class core
