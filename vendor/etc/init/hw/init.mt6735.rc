@@ -10,8 +10,6 @@ on early-init
 
 
 on init
-    # Shims
-    export LD_SHIM_LIBS "/vendor/lib/libmtkcamera_client.so|/vendor/lib/libmtkshim_gui.so:/vendor/lib64/libmtkcamera_client.so|/vendor/lib64/libmtkshim_gui.so"
     # Temp Backward compatibility
     symlink /sdcard /mnt/sdcard
     
