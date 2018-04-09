@@ -50,19 +50,9 @@ on post-fs
     # Permission for vibrator amplitude
     chown system system /sys/class/timed_output/vibrator/vibr_vol
 
-    # Touchscreen Gestures
-    chown root system /sys/lenovo_tp_gestures/letter_v_enable
-    chmod 0660 /sys/lenovo_tp_gestures/letter_v_enable
-    chown root system /sys/lenovo_tp_gestures/letter_z_enable
-    chmod 0660 /sys/lenovo_tp_gestures/letter_z_enable
-    chown root system /sys/lenovo_tp_gestures/letter_c_enable
-    chmod 0660 /sys/lenovo_tp_gestures/letter_c_enable
-    chown root system /sys/lenovo_tp_gestures/letter_e_enable
-    chmod 0660 /sys/lenovo_tp_gestures/letter_e_enable
-    chown root system /sys/lenovo_tp_gestures/letter_s_enable
-    chmod 0660 /sys/lenovo_tp_gestures/letter_s_enable
-    chown root system /sys/lenovo_tp_gestures/letter_w_enable
-    chmod 0660 /sys/lenovo_tp_gestures/letter_w_enable
+    # BOOT_MODE
+    chown camera root /sys/class/BOOT/BOOT/boot/boot_mode
+    chmod 0666 /sys/class/BOOT/BOOT/boot/boot_mode
 
 on late-fs
     # boot time fs tune
@@ -928,4 +918,3 @@ service charger /charger
     user root
     critical
     seclabel u:r:healthd:s0
-
