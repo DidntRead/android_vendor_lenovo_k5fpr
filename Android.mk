@@ -33,16 +33,6 @@ LOCAL_MODULE_SUFFIX := .so
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := libnvram
-LOCAL_SRC_FILES_64 := vendor/lib64/libnvram.so
-LOCAL_SRC_FILES_32 := vendor/lib/libnvram.so
-LOCAL_MULTILIB := both
-LOCAL_PROPRIETARY_MODULE := true
-LOCAL_MODULE_CLASS := SHARED_LIBRARIES
-LOCAL_MODULE_SUFFIX := .so
-include $(BUILD_PREBUILT)
-
-include $(CLEAR_VARS)
 LOCAL_MODULE := libpq_prot
 LOCAL_SRC_FILES_64 := vendor/lib64/libpq_prot.so
 LOCAL_SRC_FILES_32 := vendor/lib/libpq_prot.so
@@ -132,18 +122,6 @@ LOCAL_PROPRIETARY_MODULE := true
 LOCAL_MULTILIB := both
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
 LOCAL_MODULE_SUFFIX := .so
-include $(BUILD_PREBUILT)
-
-include $(CLEAR_VARS)
-LOCAL_MODULE := libmtknfc
-LOCAL_SRC_FILES_64 := vendor/lib64/libmtknfc.so
-LOCAL_SRC_FILES_32 := vendor/lib/libmtknfc.so
-LOCAL_PROPRIETARY_MODULE := true
-LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_SUFFIX := .so
-LOCAL_MULTILIB = both
-LOCAL_MODULE_CLASS := SHARED_LIBRARIES
-LOCAL_PRELINK_MODULE := false
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)

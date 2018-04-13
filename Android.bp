@@ -1,0 +1,29 @@
+cc_prebuilt_library_shared {
+        name: "libnvram",
+        target: {
+            android_arm: {
+                srcs: ["vendor/lib/libnvram.so"],
+            },
+            android_arm64: {
+                srcs: ["vendor/lib64/libnvram.so"],
+            },
+        },
+        strip: {
+            none:true,
+        },
+}
+
+cc_prebuilt_library_shared {
+        name: "libmtknfc",
+        target: {
+            android_arm: {
+                srcs: ["vendor/lib/libmtknfc.so"],
+            },
+            android_arm64: {
+                srcs: ["vendor/lib64/libmtknfc.so"],
+            },
+        },
+        strip: {
+            none:true,
+        },
+}
