@@ -83,9 +83,6 @@ on post-fs-data
     mkdir /data/gps_mnl 0771 gps system
     mkdir /data/misc/gps 0770 gps system
 
-    # NFC
-    mkdir /data/nfc_socket 0771 nfc radio
-
     # md32 boot
     chown root system /dev/md32
     chmod 0440 /dev/md32
