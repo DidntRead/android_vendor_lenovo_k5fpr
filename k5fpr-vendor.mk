@@ -26,4 +26,4 @@ PRODUCT_PACKAGES := \
 PRODUCT_COPY_FILES := \
     packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:/system/etc/permissions/android.software.live_wallpaper.xml
 
-$(call inherit-product, vendor/lenovo/A7010a48/A7010a48-vendor-blobs.mk)
+$(call inherit-product, vendor/lenovo/k5fpr/k5fpr-vendor-blobs.mk)

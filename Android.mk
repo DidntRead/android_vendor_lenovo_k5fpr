@@ -1,6 +1,6 @@
 LOCAL_PATH := $(call my-dir)
 
-ifeq ($(TARGET_DEVICE),A7010a48)
+ifeq ($(TARGET_DEVICE),k5fpr)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := libcustom_prop
