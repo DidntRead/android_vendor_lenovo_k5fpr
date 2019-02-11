@@ -5,10 +5,8 @@
 /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/protect1 /protect_f ext4 noatime,nosuid,nodev,noauto_da_alloc,commit=1,nodelalloc   wait,check,formattable
 /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/protect2 /protect_s ext4 noatime,nosuid,nodev,noauto_da_alloc,commit=1,nodelalloc   wait,check,formattable
 
-
-#/devices/mtk-msdc.0/11230000.msdc0* auto auto defaults voldmanaged=sdcard0:auto
-/devices/mtk-msdc.0/11240000.msdc1* auto auto defaults voldmanaged=sdcard1:auto,noemulatedsd,encryptable=userdata
-/devices/platform/mt_usb* auto auto defaults voldmanaged=usbotg:auto
+/devices/mtk-msdc.0/11240000.msdc1* auto auto defaults voldmanaged=sdcard1:auto,encryptable=userdata
+/devices/platform/mt_usb* auto auto defaults voldmanaged=usb:auto
 
 /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/persist /persist ext4 noatime,nosuid,nodev,noauto_da_alloc,commit=1,nodelalloc   wait,check,formattable
 #/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/custom     /custom      ext4   ro                                                         wait
