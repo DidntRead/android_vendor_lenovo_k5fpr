@@ -582,18 +582,11 @@ on post-fs-data
     chown root system /sys/autok/stage1/2/LOG 
     chown root system /sys/autok/stage2/2
 
-    #otp
-    chmod 0660 /proc/driver/otp
-    chown root system /proc/driver/otp
-
     #sn
     chmod 0664 /sys/class/android_usb/android0/iSerial
     chown root system /sys/class/android_usb/android0/iSerial
     chmod 0664 /sys/devices/platform/mt_usb/cmode
     chown root system /sys/devices/platform/mt_usb/cmode
-
-    # secure memory
-    chown system system /proc/secmem0
 
     # mcDriverDaemon
     mkdir /data/app/mcRegistry 0775 system system
@@ -645,23 +638,12 @@ on boot
     chown system system /sys/class/leds/red/trigger
     chown system system /sys/class/leds/green/trigger
     chown system system /sys/class/leds/blue/trigger
-    chmod 777 /etc/ppp/ip-up
-    chmod 777 /etc/ppp/ip-down
-    chmod 777 /etc/ppp/ip-up-ppp0
-    chmod 777 /etc/ppp/ip-down-ppp0
     setprop persist.radio.reset_on_switch true
     setprop rild.mark_switchuser 0
 
-    # Permission for hibernation
-    chown radio system /sys/power/tuxonice
-    chown radio system /sys/power/tuxonice/do_hibernate
-    chmod 0770 /sys/power/tuxonice
-    chmod 0220 /sys/power/tuxonice/do_hibernate
-
-
-# Smartbook Handler Framework
-    chown system system /sys/power/sb_state
-    chmod 0660 /sys/power/sb_state
+    # CABC
+    chown system graphics /sys/class/graphics/fb0/cabc
+    chmod 0664 /sys/class/graphics/fb0/cabc
 
 # HMP CPU hotplug strategy
     chown system system /proc/hps/num_base_perf_serv
@@ -775,40 +757,6 @@ service pq /vendor/bin/pq
     user system
     group system graphics
 
-# write proc for test sim
-    on property:gsm.sim.ril.testsim=0
-    write /proc/sys/net/netfilter/nf_conntrack_tcp_no_window_check 0
-    write /proc/sys/net/ipv4/tcp_rto_min 200
-    write /proc/sys/net/ipv4/tcp_early_retrans 3
-    on property:gsm.sim.ril.testsim=1
-    write /proc/sys/net/netfilter/nf_conntrack_tcp_no_window_check 1
-    write /proc/sys/net/ipv4/tcp_rto_min 400
-    write /proc/sys/net/ipv4/tcp_early_retrans 0
-    on property:gsm.sim.ril.testsim.2=0
-    write /proc/sys/net/netfilter/nf_conntrack_tcp_no_window_check 0
-    write /proc/sys/net/ipv4/tcp_rto_min 200
-    write /proc/sys/net/ipv4/tcp_early_retrans 3
-    on property:gsm.sim.ril.testsim.2=1
-    write /proc/sys/net/netfilter/nf_conntrack_tcp_no_window_check 1
-    write /proc/sys/net/ipv4/tcp_rto_min 400
-    write /proc/sys/net/ipv4/tcp_early_retrans 0
-    on property:gsm.sim.ril.testsim.3=0
-    write /proc/sys/net/netfilter/nf_conntrack_tcp_no_window_check 0
-    write /proc/sys/net/ipv4/tcp_rto_min 200
-    write /proc/sys/net/ipv4/tcp_early_retrans 3
-    on property:gsm.sim.ril.testsim.3=1
-    write /proc/sys/net/netfilter/nf_conntrack_tcp_no_window_check 1
-    write /proc/sys/net/ipv4/tcp_rto_min 400
-    write /proc/sys/net/ipv4/tcp_early_retrans 0
-    on property:gsm.sim.ril.testsim.4=0
-    write /proc/sys/net/netfilter/nf_conntrack_tcp_no_window_check 0
-    write /proc/sys/net/ipv4/tcp_rto_min 200
-    write /proc/sys/net/ipv4/tcp_early_retrans 3
-    on property:gsm.sim.ril.testsim.4=1
-    write /proc/sys/net/netfilter/nf_conntrack_tcp_no_window_check 1
-    write /proc/sys/net/ipv4/tcp_rto_min 400
-    write /proc/sys/net/ipv4/tcp_early_retrans 0
-
 service DMAgent /vendor/bin/dm_agent_binder
     class main
     user system
@@ -871,7 +819,6 @@ service AcdApiDaemon /vendor/bin/AcdApiDaemon
     group system
     class main
 
-
 service lsm6ds3d /vendor/bin/lsm6ds3d
     disabled
     user system
@@ -893,21 +840,10 @@ service fuelgauged /vendor/bin/fuelgauged
     user root
     group root
 
-service sn /vendor/bin/sn
-    class late_start
-    user system
-    group system sdcard_rw
-    oneshot
-
 service MtkCodecService /vendor/bin/MtkCodecService
     class main
     user system
     group audio media sdcard_r
-
-service guiext-server /vendor/bin/guiext-server
-    class core
-    user root
-    group system graphics media
 
 # Charger
 service charger /charger

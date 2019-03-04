@@ -3,6 +3,17 @@ LOCAL_PATH := $(call my-dir)
 ifeq ($(TARGET_DEVICE),k5fpr)
 
 include $(CLEAR_VARS)
+LOCAL_MODULE := libOpenCL
+LOCAL_SRC_FILES_64 := vendor/lib64/libOpenCL.so
+LOCAL_SRC_FILES_32 := vendor/lib/libOpenCL.so
+LOCAL_PROPRIETARY_MODULE := true
+LOCAL_MULTILIB := both
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE_SUFFIX := .so
+include $(BUILD_PREBUILT)
+
+
+include $(CLEAR_VARS)
 LOCAL_MODULE := libcustom_prop
 LOCAL_SRC_FILES_64 := vendor/lib64/libcustom_prop.so
 LOCAL_SRC_FILES_32 := vendor/lib/libcustom_prop.so

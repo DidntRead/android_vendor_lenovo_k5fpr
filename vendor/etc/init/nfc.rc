@@ -1,0 +1,5 @@
+service nfcstackp /vendor/bin/nfcstackp NFC_AOSP_MODE
+    class main
+    user nfc
+    group nfc inet
+    oneshot
