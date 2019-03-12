@@ -25,11 +25,9 @@ on init
     write /proc/sys/vm/page-cluster 0
 
 on fs
-    mount_all /vendor/etc/fstab.mt6735
+    mount_all /vendor/etc/fstab.mt6735 --early
 
 on post-fs
-    symlink /sdcard /storage/sdcard0
-
     chown system system /proc/bootprof
     chown root system /proc/mtprof/cputime
     chown root system /proc/mtprof/reboot_pid
@@ -55,6 +53,7 @@ on post-fs
     chmod 0666 /sys/class/BOOT/BOOT/boot/boot_mode
 
 on late-fs
+    mount_all /vendor/etc/fstab.mt6735 --late
     # boot time fs tune
     write /sys/block/mmcblk0/queue/iostats 0
     write /sys/block/mmcblk0/queue/iosched/slice_idle 0
