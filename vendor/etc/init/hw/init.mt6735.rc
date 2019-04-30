@@ -78,9 +78,12 @@ on post-fs-data
 
     mkdir /data/drm/wv 0770 drm system
 
-# GPS
+    # GPS
     mkdir /data/gps_mnl 0771 gps system
     mkdir /data/misc/gps 0770 gps system
+
+    # NFC
+    mkdir /data/nfc_socket 0771 nfc radio
 
     # md32 boot
     chown root system /dev/md32
@@ -730,6 +733,4 @@ service MtkCodecService /vendor/bin/MtkCodecService
 # Charger
 service charger /charger
     class charger
-    user root
-    critical
-    seclabel u:r:healthd:s0
+    seclabel u:r:charger:s0
