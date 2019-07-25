@@ -3,10 +3,10 @@ cc_prebuilt_library_shared {
 	vendor: true,
         target: {
             android_arm: {
-                srcs: ["vendor/lib/libnvram.so"],
+                srcs: ["exclude/lib/libnvram.so"],
             },
             android_arm64: {
-                srcs: ["vendor/lib64/libnvram.so"],
+                srcs: ["exclude/lib64/libnvram.so"],
             },
         },
         strip: {
