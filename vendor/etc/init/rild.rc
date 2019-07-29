@@ -1,4 +1,6 @@
 service ril-daemon-mtk /vendor/bin/hw/rild
+    interface android.hardware.radio@1.0::IRadio slot1
+    interface android.hardware.radio@1.0::IRadio slot2
     class core
     user root
     group radio cache inet misc audio log readproc wakelock system
