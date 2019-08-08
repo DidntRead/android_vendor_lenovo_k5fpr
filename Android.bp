@@ -1,0 +1,29 @@
+cc_prebuilt_library_shared {
+        name: "libcustom_nvram",
+        target: {
+            android_arm: {
+                srcs: ["exclude/lib/libcustom_nvram.so"],
+            },
+            android_arm64: {
+                srcs: ["exclude/lib64/libcustom_nvram.so"],
+            },
+        },
+        strip: {
+            none:true,
+        },
+}
+
+cc_prebuilt_library_shared {
+        name: "libnvram_platform",
+        target: {
+            android_arm: {
+                srcs: ["exclude/lib/libnvram_platform.so"],
+            },
+            android_arm64: {
+                srcs: ["exclude/lib64/libnvram_platform.so"],
+            },
+        },
+        strip: {
+            none:true,
+        },
+}
