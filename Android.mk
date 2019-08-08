@@ -72,4 +72,24 @@ LOCAL_MODULE_CLASS := SHARED_LIBRARIES
 LOCAL_MODULE_SUFFIX := .so
 include $(BUILD_PREBUILT)
 
+include $(CLEAR_VARS)
+LOCAL_MODULE := libcustom_nvram
+LOCAL_SRC_FILES_64 := exclude/lib64/libcustom_nvram.so
+LOCAL_SRC_FILES_32 := exclude/lib/libcustom_nvram.so
+LOCAL_PROPRIETARY_MODULE := true
+LOCAL_MULTILIB := both
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE_SUFFIX := .so
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := libnvram_platform
+LOCAL_SRC_FILES_64 := exclude/lib64/libnvram_platform.so
+LOCAL_SRC_FILES_32 := exclude/lib/libnvram_platform.so
+LOCAL_PROPRIETARY_MODULE := true
+LOCAL_MULTILIB := both
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE_SUFFIX := .so
+include $(BUILD_PREBUILT)
+
 endif
